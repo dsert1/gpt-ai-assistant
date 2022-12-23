@@ -11,6 +11,9 @@ const safeCompare = (a, b) => {
   if (a.length !== b.length) {
     return false;
   }
+  console.log("Timing safe Equal of a, b: ", timingSafeEqual(a, b));
+  console.log("Timing safe Equal of a, a: ", timingSafeEqual(a, a));
+  console.log("Timing safe Equal of b, b: ", timingSafeEqual(b, b));
   return timingSafeEqual(a, b);
 };
 
