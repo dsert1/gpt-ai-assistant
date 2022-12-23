@@ -5,9 +5,12 @@ import {
 
 const validateLineSignature = (req, res, next) => {
   const { rawBody } = req;
-  console.log(rawBody);
   const { LINE_CHANNEL_SECRET } = config;
   const signature = req.header('x-line-signature');
+  console.log("rawBody: ", rawBody);
+  console.log("LINE_CHANNEL_SECRET: ", LINE_CHANNEL_SECRET);
+  console.log("signature: ", signature);
+  console.log("validateSignature(rawBody, LINE_CHANNEL_SECRET, signature): ", validateSignature(rawBody, LINE_CHANNEL_SECRET, signature));
   if (LINE_CHANNEL_SECRET && !validateSignature(rawBody, LINE_CHANNEL_SECRET, signature)) {
     // res.sendStatus(403);
     res.status(403).json({ "line_channel_secret": LINE_CHANNEL_SECRET,
