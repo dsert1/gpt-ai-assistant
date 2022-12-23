@@ -6,8 +6,13 @@ import {
 const validateLineSignature = (req, res, next) => {
   const { rawBody } = req;
   const { LINE_CHANNEL_SECRET } = config;
-  const signature = req.get('x-line-signature') | req.headers['x-line-signature'];
+  const signature = req.get('x-line-signature');
+  if (!signature) {
+    signature = req.headers["x-line-signature"];
+    console.log("executed the if block with req.headers[\"x-line-signature\"]");
+  }
   console.log(req.headers);
+  console.log(req.body);
   console.log("rawBody: ", rawBody);
   console.log("LINE_CHANNEL_SECRET: ", LINE_CHANNEL_SECRET);
   console.log("signature: ", signature);
