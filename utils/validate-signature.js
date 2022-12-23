@@ -6,8 +6,6 @@ import {
 const s2b = (str, encoding) => Buffer.from(str, encoding);
 
 const safeCompare = (a, b) => {
-  console.log("a: ", a);
-  console.log("b: ", b);
   if (a.length !== b.length) {
     return false;
   }
