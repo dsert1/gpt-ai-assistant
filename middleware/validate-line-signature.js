@@ -7,6 +7,7 @@ const validateLineSignature = (req, res, next) => {
   const { rawBody } = req;
   const { LINE_CHANNEL_SECRET } = config;
   const signature = req.header('x-line-signature');
+  console.log("req.header: ", req.header);
   console.log("rawBody: ", rawBody);
   console.log("LINE_CHANNEL_SECRET: ", LINE_CHANNEL_SECRET);
   console.log("signature: ", signature);
